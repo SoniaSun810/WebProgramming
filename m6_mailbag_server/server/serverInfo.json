@@ -4,7 +4,7 @@
   "port": 465,
   "auth": {
     "user": "soniasun0925@gmail.com",
-    "pass": "hshjrcdftzqzmkah"
+    "pass": ""
   }
 },
 "imap" : {
@@ -12,7 +12,7 @@
   "port": 993,
   "auth": {
     "user": "soniasun0925@gmail.com",
-    "pass": "hshjrcdftzqzmkah"
+    "pass": ""
   }
 }
 }
