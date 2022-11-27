@@ -165,26 +165,31 @@ app.post("/contacts",
 
 // Update a contact
 // New Feature Developed
-app.put("/contacts",
-  async (inRequest : Request, inResponse : Response) => {
-    console.log("PUT/ contacts", inRequest.body);
-    try {
-      const contactsWorker : Contacts.Worker = new Contacts.Worker();
-      try {
-        await contactsWorker.deleteContact(inRequest.body._id);
-      } catch (inError) {
-        console.log("PUT /contacts: Error", inError);
-        inResponse.send("error");
-      }
-      const contact: IContact = await contactsWorker.addContact(inRequest.body);
-      console.log("PUT /contacts: Ok", contact);
-      inResponse.json(contact);
-    } catch (inError){
-      console.log("PUT /contacts: Error", inError);
-      inResponse.send("error");
-    }
-  }
-  );
+// What I wrote here is not that correct.
+// Instead, you need to create a new method "UpdateContact" in Contacts.ts, class Worker
+// In Contacts.ts: Use inbuilt update method in NeDB
+
+
+// app.put("/contacts",
+//   async (inRequest : Request, inResponse : Response) => {
+//     console.log("PUT/ contacts", inRequest.body);
+//     try {
+//       const contactsWorker : Contacts.Worker = new Contacts.Worker();
+//       try {
+//         await contactsWorker.deleteContact(inRequest.body._id);
+//       } catch (inError) {
+//         console.log("PUT /contacts: Error", inError);
+//         inResponse.send("error");
+//       }
+//       const contact: IContact = await contactsWorker.addContact(inRequest.body);
+//       console.log("PUT /contacts: Ok", contact);
+//       inResponse.json(contact);
+//     } catch (inError){
+//       console.log("PUT /contacts: Error", inError);
+//       inResponse.send("error");
+//     }
+//   }
+//   );
 
 
 // Delete a contact.
